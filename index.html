@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sua Personal Trainer | PowerFit</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins (Strong) and Open Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Open Sans', 'sans-serif'],
+              heading: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                purple: '#7C3AED', // Violet-600
+                teal: '#2DD4BF',   // Teal-400 (Neon-ish)
+                dark: '#1F2937',   // Gray-800
+                light: '#F9FAFB',  // Gray-50
+              }
+            },
+            animation: {
+              'breathing': 'breathing 3s ease-in-out infinite',
+              'marquee': 'marquee 60s linear infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth scrolling for anchor links */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* 
+         FIX: Adiciona margem ao topo das seções quando ativadas por links âncora.
+         Isso previne que o header fixo cubra o título da seção.
+      */
+      section[id], footer[id] {
+        scroll-margin-top: 100px;
+      }
+
+      /* Custom animation for pulsating cards (Scale instead of opacity) */
+      @keyframes breathing {
+        0% { transform: scale(1); box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3); }
+        50% { transform: scale(1.03); box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.6); }
+        100% { transform: scale(1); box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3); }
+      }
+      
+      .animate-breathing {
+        animation: breathing 3s ease-in-out infinite;
+      }
+
+      /* Infinite Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      
+      .animate-marquee {
+        animation: marquee 60s linear infinite;
+        width: max-content;
+      }
+
+      /* Pause animation on hover for better readability */
+      .animate-marquee:hover {
+        animation-play-state: paused;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-brand-light text-brand-dark antialiased">
+    <div id="root"></div>
+  </body>
+</html>
